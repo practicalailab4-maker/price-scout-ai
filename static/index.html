@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Price Scout AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <main class="dashboard">
+        <header>
+            <div class="brand">◈ PRICE SCOUT <span>AI</span></div>
+            <p>Intelligent Product Research</p>
+        </header>
+
+        <section class="search-panel">
+            <h1>
+                <span style="color: #78DCFF;">Discover.</span>
+                <span style="color: #FFD400;">Compare.</span>
+                <span style="color: #C4B5FD;">Evaluate.</span>
+            </h1>
+            <p>Watch AI investigate products and compare offers.</p>
+
+            <div class="search-row">
+                <input id="product" value="AMD Ryzen 7 9700X" placeholder="Enter a product name">
+                <button id="research-btn">Research Product</button>
+            </div>
+        </section>
+
+        <section class="activity-panel">
+            <h2>AI Research Activity</h2>
+            <div id="activity">
+                Ready to research your first product.
+            </div>
+        </section>
+
+        <section class="results-panel">
+            <h2>Price Comparison</h2>
+            <div id="results">
+                Your research results will appear here.
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>

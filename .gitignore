@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# local test output
+test_error.txt
+_backup_before_atlas_theme/
