@@ -730,7 +730,7 @@ function renderDashboard(data) {
         const width = 1400;
         const height = 850;
 
-        const colors = ["#78DCFF","#A78BFA","#FFD400","#F472B6","#5EEAD4","#60A5FA"];
+        
 
         const svg = d3.select(sankeyContainer)
             .append("svg")
@@ -756,27 +756,30 @@ function renderDashboard(data) {
             links: sankeyData.links.map(link => ({ ...link }))
         });
 
-        const colorByNode = new Map(
-            graph.nodes.map((node, index) => [
-                node.id,
-                colors[index % colors.length]
-            ])
-        );
+        // Calm palette: one soft hue per brand, muted gold for segments, quiet slate for the rest
+        const brandHues = ["#7FB7D6", "#A99BD6", "#8FC9B8", "#C9A7C0"];
+        const brandNodes = graph.nodes.filter(n => n.stage === 0);
+        const brandColor = new Map(brandNodes.map((n, i) => [n.id, brandHues[i % brandHues.length]]));
+        const colorByNode = new Map();
+        graph.nodes.forEach(n => {
+            if (n.stage === 0) colorByNode.set(n.id, brandColor.get(n.id));
+        });
+        graph.links.forEach(l => {
+            if (l.source.stage === 0) colorByNode.set(l.target.id, brandColor.get(l.source.id));
+        });
+        graph.nodes.forEach(n => {
+            if (!colorByNode.has(n.id)) colorByNode.set(n.id, n.stage === 2 ? "#CDBB85" : "#9AA3C7");
+        });
 
         svg.append("g")
             .selectAll("path")
             .data(graph.links)
             .join("path")
             .attr("d", d3.sankeyLinkHorizontal())
-            .style("stroke-opacity", 1)
             .attr("fill", "none")
-            .attr("stroke", link => {
-                const forestColors = ["#78DCFF","#A78BFA","#FFD400","#F472B6","#5EEAD4","#60A5FA","#C4B5FD","#FDE68A","#7DD3FC","#F9A8D4"];
-
-                const index = graph.links.indexOf(link);
-                return forestColors[index % forestColors.length];
-            })
-            .attr("stroke-width", link => Math.max(4, link.width * 1.5))
+            .attr("stroke", link => colorByNode.get(link.source.id))
+            .attr("stroke-opacity", 0.32)
+.attr("stroke-width", link => Math.max(3, link.width))
             .style("cursor", "pointer")
             .on("mouseenter", function () {
                 d3.select(this)
@@ -784,14 +787,14 @@ function renderDashboard(data) {
                     .raise()
                     .transition()
                     .duration(250)
-                    .attr("stroke-opacity", 1);
+                    .attr("stroke-opacity", 0.75);
             })
             .on("mouseleave", function () {
                 d3.select(this)
                     .interrupt()
                     .transition()
                     .duration(350)
-                    .attr("stroke-opacity", 1);
+                    .attr("stroke-opacity", 0.32);
             })
             .append("title")
 
@@ -821,8 +824,8 @@ function renderDashboard(data) {
             .attr("text-anchor", node =>
                 node.stage === 3 ? "start" : "end"
             )
-            .attr("fill", "#cbd5e1")
-            .attr("font-size", 12)
+            .attr("fill", "#E6E4FA")
+            .attr("font-size", 14)
             .text(node => node.label);
 
         nodes.append("title")
