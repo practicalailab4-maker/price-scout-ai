@@ -50,4 +50,5 @@ Fork it and hand your own AI helper a different kind of research job.
 MIT
 
 
-<img width="568" height="735" alt="Screenshot 2026-11-08 at 4 17 33 PM" src="https://github.com/user-attachments/assets/a1f86f7e-cc91-4d43-8085-d71a9f2218e5" />
+<img width="568" height="735" alt="Screenshot" src="https://github.com/user-attachments/assets/e9689bea-0d57-481b-a2ab-6b246581289b" />
+
