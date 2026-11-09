@@ -88,6 +88,9 @@ function prepareAtlasNarration(text) {
 let atlasAudio = null;
 
 async function speakResearchBriefing(text) {
+    // Add ?mute=1 to the address to silence the spoken briefing (no audio, no ElevenLabs request).
+    if (new URLSearchParams(location.search).has("mute")) return;
+
     // Stop any previous narration.
     window.speechSynthesis?.cancel();
 
