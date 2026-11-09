@@ -1,5 +1,3 @@
-<img width="563" height="792" alt="Screenshot 2026-11-08 at 4 17 57 PM" src="https://github.com/user-attachments/assets/f3dd2111-b85c-46b4-abde-d67fbf90add8" />
-<img width="568" height="735" alt="Screenshot 2026-11-08 at 4 17 33 PM" src="https://github.com/user-attachments/assets/a1f86f7e-cc91-4d43-8085-d71a9f2218e5" />
 # Price Scout AI
 
 An AI teammate that researches a product and compares offers for you.
@@ -50,3 +48,6 @@ Fork it and hand your own AI helper a different kind of research job.
 ## License
 
 MIT
+
+
+<img width="568" height="735" alt="Screenshot 2026-11-08 at 4 17 33 PM" src="https://github.com/user-attachments/assets/a1f86f7e-cc91-4d43-8085-d71a9f2218e5" />
