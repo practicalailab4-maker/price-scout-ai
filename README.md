@@ -50,3 +50,7 @@ Fork it and hand your own AI helper a different kind of research job.
 ## License
 
 MIT
+
+
+<img width="568" height="735" alt="Screenshot" src="https://github.com/user-attachments/assets/e9689bea-0d57-481b-a2ab-6b246581289b" />
+
