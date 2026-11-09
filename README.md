@@ -1,5 +1,7 @@
 # Price Scout AI
 
+![Price Scout AI](docs/screenshot.png)
+
 An AI teammate that researches a product and compares offers for you.
 Type a product name and watch it investigate retailers, verify sources, score comparable products and explain its recommendation.
 
